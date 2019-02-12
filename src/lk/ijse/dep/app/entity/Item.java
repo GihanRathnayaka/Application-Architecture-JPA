@@ -2,6 +2,7 @@ package lk.ijse.dep.app.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 public class Item extends SuperEntity{

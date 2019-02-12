@@ -1,6 +1,9 @@
 package lk.ijse.dep.app.util;
 
 import lk.ijse.dep.app.entity.Customer;
+import lk.ijse.dep.app.entity.Item;
+import lk.ijse.dep.app.entity.Order;
+import lk.ijse.dep.app.entity.OrderDetail;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
@@ -22,6 +25,9 @@ public class HibernateUtil {
 
         Metadata metadata = new MetadataSources(registry)
                 .addAnnotatedClass(Customer.class)
+                .addAnnotatedClass(Item.class)
+                .addAnnotatedClass(Order.class)
+                .addAnnotatedClass(OrderDetail.class)
                 .buildMetadata();
 
         return metadata.buildSessionFactory();

@@ -1,9 +1,11 @@
 package lk.ijse.dep.app.entity;
 
 import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+@Entity
 public class OrderDetail extends SuperEntity{
     @EmbeddedId
     private OrderDetailPK orderDetailPK;
@@ -11,11 +13,11 @@ public class OrderDetail extends SuperEntity{
     private double unitPrice;
 
     @ManyToOne()
-    @JoinColumn(name = "customerId",referencedColumnName = "id")
+    @JoinColumn(name = "customerId",referencedColumnName = "id",insertable = false,updatable = false)
     private Customer customerId;
 
     @ManyToOne()
-    @JoinColumn(name = "itemCode",referencedColumnName = "code")
+    @JoinColumn(name = "itemCode",referencedColumnName = "code", insertable = false,updatable = false)
     private Item itemCode;
 
 

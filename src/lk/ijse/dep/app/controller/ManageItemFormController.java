@@ -161,8 +161,10 @@ public class ManageItemFormController {
                     Double.parseDouble(txtUnitPrice.getText()),Integer.parseInt(txtQty.getText()));
             boolean result = false;
             try {
-                result = manageItemsBO.createItem(itemDTO);
+                manageItemsBO.createItem(itemDTO);
+                result=true;
             } catch (Exception e) {
+                result=false;
                 Logger.getLogger("").log(Level.SEVERE, null, e);
             }
 
@@ -186,9 +188,11 @@ public class ManageItemFormController {
 
             boolean result = false;
             try {
-                result = manageItemsBO.updateItem(new ItemDTO(txtItemCode.getText(), txtDescription.getText(),
+                 manageItemsBO.updateItem(new ItemDTO(txtItemCode.getText(), txtDescription.getText(),
                         Double.parseDouble(txtUnitPrice.getText()),Integer.parseInt(txtQty.getText())));
+                result=true;
             } catch (Exception e) {
+                result=false;
                 Logger.getLogger("").log(Level.SEVERE, null, e);
             }
 
@@ -215,8 +219,10 @@ public class ManageItemFormController {
             tblItems.getItems().remove(tblItems.getSelectionModel().getSelectedItem());
             boolean result = false;
             try {
-                result = manageItemsBO.deleteItem(selectedRow);
+                 manageItemsBO.deleteItem(selectedRow);
+                 result=true;
             } catch (Exception e) {
+                result=false;
                 Logger.getLogger("").log(Level.SEVERE, null, e);
             }
             if (!result){
