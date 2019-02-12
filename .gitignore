@@ -1,0 +1,9 @@
+error.log
+error.log.1
+out/**
+ijse.dump
+ijse.sql
+Application Architecture + Native Hibernate.iml
+test/**
+.idea
+lib/**
