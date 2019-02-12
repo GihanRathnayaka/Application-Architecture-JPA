@@ -1,18 +1,25 @@
 package lk.ijse.dep.app.entity;
 
+import javax.persistence.*;
 import java.sql.Date;
 
+@Entity
+@Table(name = "`Order`")
 public class Order extends SuperEntity{
 
+    @Id
     private String id;
     private Date date;
-    private String customerId;
+
+    @ManyToOne
+    @JoinColumn(name = "customerId" ,referencedColumnName = "id")
+    private Customer customerId;
 
     public Order() {
 
     }
 
-    public Order(String id, Date date, String customerId) {
+    public Order(String id, Date date, Customer customerId) {
         this.id = id;
         this.date = date;
         this.customerId = customerId;
@@ -34,11 +41,11 @@ public class Order extends SuperEntity{
         this.date = date;
     }
 
-    public String getCustomerId() {
+    public Customer getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(String customerId) {
+    public void setCustomerId(Customer customerId) {
         this.customerId = customerId;
     }
 
