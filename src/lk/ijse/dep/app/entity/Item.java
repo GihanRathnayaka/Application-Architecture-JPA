@@ -1,7 +1,12 @@
 package lk.ijse.dep.app.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Item extends SuperEntity{
 
+    @Id
     private String code;
     private String description;
     private double unitPrice;
